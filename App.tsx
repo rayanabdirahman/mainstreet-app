@@ -6,6 +6,7 @@ import { Provider } from 'react-redux'
 import tailwind from 'tailwind-rn'
 import useCachedResources from './hooks/useCachedResources'
 import { store } from './store'
+import Navigation from './navigation'
 
 export default function App() {
   const isLoadingComplete = useCachedResources()
@@ -16,12 +17,7 @@ export default function App() {
   } else {
     return (
       <Provider store={store}>
-        <SafeAreaView style={tailwind('bg-white')}>
-          <View style={tailwind('p-4 pb-0')}>
-            <Text>Open up App.tsx to start working on your app!</Text>
-            <StatusBar style="auto" />
-          </View>              
-        </SafeAreaView>
+        <Navigation isUserSignedIn={true} />
       </Provider>
     )
   }
