@@ -1,1 +1,1 @@
-export { User, Store, Organisation, UserRole } from './users.interface'
+export { User, Organisation, UserRole } from './users.interface'

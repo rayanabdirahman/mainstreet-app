@@ -18,18 +18,8 @@ export type User = {
   email: string
   avatar: string
   role: UserRole
-  createdAt: string
-  updatedAt: string
-}
-
-export type Store = {
-  _id: string
-  name: string
-  username: string
-  email: string
-  avatar: string
-  role: UserRole
-  organisation: string
+  // organisation will be null if user role is BUYER
+  organisation?: string | null
   createdAt: string
   updatedAt: string
 }
