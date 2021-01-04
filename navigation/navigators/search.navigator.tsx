@@ -2,8 +2,8 @@ import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
 import { View, Text, SafeAreaView } from 'react-native'
 import tailwind from 'tailwind-rn'
-import { SearchParamList } from '../interfaces'
-import { SearchTabRouteName } from '../enums'
+import { SearchParamList } from '../types/interfaces'
+import { SearchTabRouteName } from '../types/enums'
 import { StatusBar } from 'expo-status-bar'
 
 const PlaceHolderScreen = () => (

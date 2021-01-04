@@ -1,3 +1,9 @@
+export type AuthStackParamList = {
+  Landing: undefined
+  SignIn: undefined
+  SignUp: undefined
+}
+
 export type RootStackParamList = {
   Root: undefined
   CreateModal: undefined

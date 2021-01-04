@@ -2,8 +2,8 @@ import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
 import { View, Text, SafeAreaView } from 'react-native'
 import tailwind from 'tailwind-rn'
-import { ProfileParamList } from '../interfaces'
-import { ProfileTabRouteName } from '../enums'
+import { ProfileParamList } from '../types/interfaces'
+import { ProfileTabRouteName } from '../types/enums'
 import { StatusBar } from 'expo-status-bar'
 
 const PlaceHolderScreen = () => (

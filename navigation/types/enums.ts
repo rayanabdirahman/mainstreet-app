@@ -1,3 +1,9 @@
+export enum AuthScreenName {
+  LANDING = 'Landing',
+  SIGN_UP = 'SignUp',
+  SIGN_IN = 'SignIn'
+}
+
 export enum RootStackRouteName {
   ROOT = 'Root',
   CREATE_MODAL = 'CreateModal'

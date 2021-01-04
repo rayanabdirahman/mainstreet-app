@@ -2,8 +2,8 @@ import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
 import { View, Text, SafeAreaView } from 'react-native'
 import tailwind from 'tailwind-rn'
-import { FeedParamList } from '../interfaces'
-import { FeedTabRouteName } from '../enums'
+import { FeedParamList } from '../types/interfaces'
+import { FeedTabRouteName } from '../types/enums'
 import { StatusBar } from 'expo-status-bar'
 
 const PlaceHolderScreen = () => (

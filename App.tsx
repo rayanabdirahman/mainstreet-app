@@ -17,7 +17,7 @@ export default function App() {
   } else {
     return (
       <Provider store={store}>
-        <Navigation isUserSignedIn={true} />
+        <Navigation isUserSignedIn={false} />
       </Provider>
     )
   }

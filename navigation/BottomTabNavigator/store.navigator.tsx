@@ -1,8 +1,8 @@
 import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import TabBarIcon from '../utilities/tabBarIcon'
-import { BottomTabParamList } from '../interfaces'
-import { BottomTabRouteName } from '../enums'
+import { BottomTabParamList } from '../types/interfaces'
+import { BottomTabRouteName } from '../types/enums'
 import { FeedNavigator, ProfileNavigator, SearchNavigator } from '../navigators'
 import { getColor } from 'tailwind-rn'
 
