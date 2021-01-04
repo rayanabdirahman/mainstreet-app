@@ -3,7 +3,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import TabBarIcon from '../utilities/tabBarIcon'
 import { BottomTabParamList } from '../types/interfaces'
 import { BottomTabRouteName } from '../types/enums'
-import { FeedNavigator, ProfileNavigator, SearchNavigator } from '../navigators'
+import { FeedNavigator, ProfileNavigator, SearchNavigator } from '../screenNavigators'
 import { getColor } from 'tailwind-rn'
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>()
