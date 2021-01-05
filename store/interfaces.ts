@@ -1,9 +1,9 @@
-import { User, UserRole } from '../domain'
+import { UserModel, UserRole } from '../types'
 
 export type SessionState = {
   token: string | null,
   isAuthenticated: boolean,
   loading: boolean,
   role: UserRole | null
-  user: User | null
+  user: UserModel | null
 }
