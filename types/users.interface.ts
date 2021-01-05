@@ -37,6 +37,7 @@ export interface SignUpModel {
   role?: UserRole
 }
 
+
 export interface SignInModel {
   email: string
   password: string

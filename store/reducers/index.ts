@@ -1,10 +1,6 @@
 import { combineReducers } from 'redux'
+import  authentication from './authentication'
 
 export default combineReducers({ 
-  session: () => ({ 
-    token: null,
-    isAuthenticated: false,
-    loading: false,
-    user: null
-  }) 
+  session: authentication
 })

@@ -1,14 +1,32 @@
-import { StatusBar } from 'expo-status-bar'
 import React from 'react'
-import { SafeAreaView, Text, View } from 'react-native'
 import AppLoading from 'expo-app-loading'
-import { Provider } from 'react-redux'
-import tailwind from 'tailwind-rn'
+import { StatusBar } from 'expo-status-bar'
+import { Provider, useDispatch, useSelector } from 'react-redux'
 import useCachedResources from './hooks/useCachedResources'
-import { store } from './store'
+import { State, store } from './store'
 import Navigation from './navigation'
+import { authoriseUser } from './store/actions/authentication'
+import { SessionState } from './store/interfaces'
+import { SafeAreaProvider } from 'react-native-safe-area-context'
 
-export default function App() {
+function App() {
+  const dispatch = useDispatch()
+  const { isAuthenticated } = useSelector<State, SessionState>(state => state.session)
+
+  React.useEffect(() => {
+    // dispatch action to check if user is authorised
+    dispatch(authoriseUser())
+  }, [])
+
+  return (
+    <SafeAreaProvider>
+      <Navigation isUserSignedIn={isAuthenticated} />
+      <StatusBar style="auto"/>
+    </SafeAreaProvider>
+  )
+}
+
+export default function () {
   const isLoadingComplete = useCachedResources()
   if (!isLoadingComplete) {
     return (
@@ -17,7 +35,7 @@ export default function App() {
   } else {
     return (
       <Provider store={store}>
-        <Navigation isUserSignedIn={false} />
+        <App />
       </Provider>
     )
   }

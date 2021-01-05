@@ -28,7 +28,7 @@ export default {
     favicon: './assets/favicon.png'
   },
   extra: {
-    API_URL: process.env.__DEV__ ? 'http://627fedf30c8d.ngrok.io/api' : 'http://627fedf30c8d.ngrok.io/api',
+    API_URL: process.env.__DEV__ ? 'http://055373dd51fc.ngrok.io/api' : 'http://055373dd51fc.ngrok.io/api',
     LOCALSTORAGE_AUTHORIZATION_TOKEN: 'Authorization-Token'
   },
 }

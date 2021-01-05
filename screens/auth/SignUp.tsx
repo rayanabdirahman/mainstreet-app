@@ -1,20 +1,52 @@
-import React from 'react'
-import { Text, View } from 'react-native'
+import React, { useState } from 'react'
+import { Text } from 'react-native'
 import { StackScreenProps } from '@react-navigation/stack'
 import tailwind from 'tailwind-rn'
 import { AuthScreenName } from '../../navigation/types/enums'
 import { AuthStackParamList } from '../../navigation/types/interfaces'
-import { Button, Input, LayoutWithContentContainer } from '../../components'
-import { TouchableOpacity } from 'react-native-gesture-handler'
-
+import { Button, LayoutWithContentContainer, SignUpStepEmail, SignUpStepName, SignUpStepPassword, SignUpStepUsername } from '../../components'
+import { SignUpModel } from '../../types'
+import { useDispatch } from 'react-redux'
+import { signUpUser } from '../../store/actions/authentication'
 
 const SignUpScreen = ({ navigation }: StackScreenProps<AuthStackParamList, AuthScreenName.SIGN_UP>) => {
+  const dispatch = useDispatch()
+  const [pageCounter, setPageCounter] = useState(0)
+  const [state, setState] = React.useState<SignUpModel>({
+    name: '',
+    username: '',
+    email: '',
+    password: ''
+  })
+
+  const SignUpStep = {
+    NAME: 0,
+    USERNAME: 1,
+    EMAIL: 2,
+    PASSWORD: 3,
+  }
+
   return (
     <LayoutWithContentContainer>
-      <View style={tailwind('mb-10')}>
-        <Text style={tailwind('font-bold text-black text-2xl mb-2')}>Welcome to mainstreet</Text>             
-        <Text style={tailwind('font-normal text-gray-500 text-base')}>Enter your details to continue</Text>      
-      </View>
+      <Text style={tailwind('font-bold text-black text-2xl mb-2')}>Welcome to mainstreet</Text>             
+      { 
+        pageCounter === SignUpStep.NAME ? (
+          <SignUpStepName onChangeText={(value: string) => setState({ ...state, name: value })} />
+        ) :
+        pageCounter === SignUpStep.USERNAME ? (
+          <SignUpStepUsername onChangeText={(value: string) => setState({ ...state, username: value })} />
+        ) : 
+        pageCounter === SignUpStep.EMAIL ? (
+          <SignUpStepEmail onChangeText={(value: string) => setState({ ...state, email: value })} />
+        ) : 
+        pageCounter === SignUpStep.PASSWORD ? (
+          <SignUpStepPassword onChangeText={(value: string) => setState({ ...state, password: value })} />
+        ) : null
+      }
+      <Button
+        title={ pageCounter === SignUpStep.PASSWORD ? "Sign up" : "Continue" }
+        success={ pageCounter === SignUpStep.PASSWORD ? false : true }
+        onPress={ () => pageCounter !== SignUpStep.PASSWORD ? setPageCounter(pageCounter + 1) : dispatch(signUpUser({ ...state })) } />
     </LayoutWithContentContainer>
   )
 }
