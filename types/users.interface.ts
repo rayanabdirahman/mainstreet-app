@@ -11,7 +11,7 @@ export type Organisation = {
   members: string[]
 }
 
-export type User = {
+export type UserModel = {
   _id: string
   name: string
   username: string
@@ -22,4 +22,22 @@ export type User = {
   organisation?: string | null
   createdAt: string
   updatedAt: string
+}
+
+export interface AuthTokenModel {
+  token: string
+}
+
+export interface SignUpModel {
+  name: string
+  username: string
+  email: string
+  password: string
+  // set on frontend depending whether user decides to create a store or not
+  role?: UserRole
+}
+
+export interface SignInModel {
+  email: string
+  password: string
 }

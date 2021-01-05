@@ -1,1 +1,0 @@
-export { User, Organisation, UserRole } from './users.interface'
