@@ -1,19 +1,27 @@
 import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
-import { View, Text, SafeAreaView } from 'react-native'
+import { View, Text, SafeAreaView, Button } from 'react-native'
 import tailwind from 'tailwind-rn'
 import { FeedParamList } from '../types/interfaces'
 import { FeedTabRouteName } from '../types/enums'
 import { StatusBar } from 'expo-status-bar'
+import { signOutUser } from '../../store/actions/authentication'
+import { useDispatch } from 'react-redux'
 
-const PlaceHolderScreen = () => (
-  <SafeAreaView style={tailwind('bg-white')}>
-    <View style={tailwind('p-4 pb-0')}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>              
-  </SafeAreaView>
-)
+const PlaceHolderScreen = () => {
+  const dispatch = useDispatch()
+  return (
+    <SafeAreaView style={tailwind('bg-white')}>
+      <View style={tailwind('p-4 pb-0')}>
+        <Text>Open up App.tsx to start working on your app!</Text>
+        <Button title='clear' onPress={() => dispatch(signOutUser)} />
+        <StatusBar style="auto" />
+      </View>              
+    </SafeAreaView>
+  )
+}
+
+
 
 const FeedStack = createStackNavigator<FeedParamList>()
 const FeedNavigator = () => (
