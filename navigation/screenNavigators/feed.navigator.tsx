@@ -7,6 +7,7 @@ import { FeedTabRouteName } from '../types/enums'
 import { StatusBar } from 'expo-status-bar'
 import { signOutUser } from '../../store/actions/authentication'
 import { useDispatch } from 'react-redux'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 
 const PlaceHolderScreen = () => {
   const dispatch = useDispatch()
@@ -14,7 +15,7 @@ const PlaceHolderScreen = () => {
     <SafeAreaView style={tailwind('bg-white')}>
       <View style={tailwind('p-4 pb-0')}>
         <Text>Open up App.tsx to start working on your app!</Text>
-        <Button title='clear' onPress={() => dispatch(signOutUser)} />
+        <Button title='clear' onPress={() => AsyncStorage.clear()} />
         <StatusBar style="auto" />
       </View>              
     </SafeAreaView>

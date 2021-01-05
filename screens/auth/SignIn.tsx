@@ -7,8 +7,13 @@ import { AuthStackParamList } from '../../navigation/types/interfaces'
 import { Button, LayoutWithContentContainer } from '../../components'
 import TextButton from '../../navigation/utilities/TextButton'
 import { TextInputWithIcon } from '../../components/Input'
+import { useDispatch } from 'react-redux'
+import useSignInForm from '../../hooks/auth/useSignInForm'
+import { signInUser } from '../../store/actions/authentication'
 
 const SignInScreen = ({ navigation }: StackScreenProps<AuthStackParamList, AuthScreenName.SIGN_IN>) => {
+  const dispatch = useDispatch()
+  const [formInputState, setFormInputState ] = useSignInForm()
   React.useEffect(() => {
     navigation.setOptions({
       headerRight: () => <TextButton>Trouble logging in?</TextButton>
@@ -22,10 +27,19 @@ const SignInScreen = ({ navigation }: StackScreenProps<AuthStackParamList, AuthS
         <Text style={tailwind('font-normal text-gray-500 text-base')}>Enter your credentials to continue</Text>      
       </View>
       <View style={tailwind('mb-3')}>
-        <TextInputWithIcon iconName="user" placeholder="Username or Email" />
-        <TextInputWithIcon secureTextEntry iconName="lock" placeholder="Password" />
+        <TextInputWithIcon 
+          iconName="user"
+          placeholder="Username or Email"
+          onChangeText={(value: string) => setFormInputState({ ...formInputState, email: value })}
+        />
+        <TextInputWithIcon
+          secureTextEntry
+          iconName="lock"
+          placeholder="Password"
+          onChangeText={(value: string) => setFormInputState({ ...formInputState, password: value })}
+        />
       </View>
-      <Button title="Login" onPress={() => alert('button')} />
+      <Button title="Login" onPress={() => dispatch(signInUser({ ...formInputState }))} />
     </LayoutWithContentContainer>
   )
 }
