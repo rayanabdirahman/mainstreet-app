@@ -18,6 +18,14 @@ export type BottomTabParamList = {
   Profile: undefined
 }
 
+export type SignInParamList = {
+  SignInScreen: undefined
+}
+
+export type SignUpParamList = {
+  SignUpScreen: undefined
+}
+
 export type FeedParamList = {
   FeedScreen: undefined
 }

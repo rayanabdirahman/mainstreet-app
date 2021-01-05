@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux'
 import { State } from '../../store'
 import { SessionState } from '../../store/interfaces'
-import { UserRole } from '../../domain'
+import { UserRole } from '../../types'
 import StoreNavigation from './store.navigator'
 import BuyerNavigation from './buyer.navigator'
 

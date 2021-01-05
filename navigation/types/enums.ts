@@ -17,6 +17,14 @@ export enum BottomTabRouteName {
   PROFILE = 'Profile'
 }
 
+export enum SignUpStackRouteName {
+  SIGN_UP_SCREEN = 'SignUpScreen',
+}
+
+export enum SignInStackRouteName {
+  SIGN_IN_SCREEN = 'SignInScreen',
+}
+
 export enum FeedTabRouteName {
   FEED_SCREEN = 'FeedScreen',
 }
