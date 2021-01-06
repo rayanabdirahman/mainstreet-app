@@ -15,7 +15,6 @@ const SignUpScreen = ({ navigation }: StackScreenProps<AuthStackParamList, AuthS
 
   return (
     <LayoutWithContentContainer>
-      <Text style={tailwind('font-bold text-black text-2xl mb-2')}>Lets get started!</Text>             
       { 
         formStep === SignUpFormStepsEnum.NAME ? (
           <SignUpStepName onChangeText={(value: string) => setFormInputState({ ...formInputState, name: value })} />

@@ -5,6 +5,7 @@ import { TextInputWithIcon } from '../../components/Input'
 
 export const SignUpStepName = (props: TextInput['props']) => (
   <React.Fragment>
+    <Text style={tailwind('font-bold text-black text-2xl mb-2')}>Lets get started!</Text>
     <Text style={tailwind('mb-10 font-normal text-gray-500 text-base')}>Enter your name to continue</Text>
     <TextInputWithIcon iconName="user" placeholder="Name" {...props } />   
   </React.Fragment>
@@ -12,6 +13,7 @@ export const SignUpStepName = (props: TextInput['props']) => (
 
 export const SignUpStepUsername = (props: TextInput['props']) => (
   <React.Fragment>
+    <Text style={tailwind('font-bold text-black text-2xl mb-2')}>Username</Text>
     <Text style={tailwind('mb-10 font-normal text-gray-500 text-base')}>Enter a username to continue</Text>
     <TextInputWithIcon iconName="user" placeholder="Username" {...props } />   
   </React.Fragment>
@@ -19,13 +21,15 @@ export const SignUpStepUsername = (props: TextInput['props']) => (
 
 export const SignUpStepEmail = (props: TextInput['props']) => (
   <React.Fragment>
-   <Text style={tailwind('mb-10 font-normal text-gray-500 text-base')}>Enter your email address to continue</Text>
-   <TextInputWithIcon iconName="mail" placeholder="Email" {...props } />   
+    <Text style={tailwind('font-bold text-black text-2xl mb-2')}>Email address</Text>
+    <Text style={tailwind('mb-10 font-normal text-gray-500 text-base')}>Enter your email address to continue</Text>
+    <TextInputWithIcon iconName="mail" placeholder="Email" {...props } />   
   </React.Fragment>
 )
 
 export const SignUpStepPassword = (props: TextInput['props']) => (
   <React.Fragment>
+    <Text style={tailwind('font-bold text-black text-2xl mb-2')}>Password</Text>
     <Text style={tailwind('mb-10 font-normal text-gray-500 text-base')}>Enter a password to continue</Text>
     <TextInputWithIcon secureTextEntry iconName="lock" placeholder="Password" {...props } />   
   </React.Fragment>
