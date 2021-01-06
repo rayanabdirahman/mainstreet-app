@@ -1,4 +1,5 @@
 // auth screens
+export { default as LandingNavigator } from './landing.navigator'
 export { default as SignUpNavigator } from './signup.navigator'
 export { default as SignInNavigator } from './signin.navigator'
 

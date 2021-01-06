@@ -18,6 +18,10 @@ export type BottomTabParamList = {
   Profile: undefined
 }
 
+export type LandingParamList = {
+  LandingScreen: undefined
+}
+
 export type SignInParamList = {
   SignInScreen: undefined
 }

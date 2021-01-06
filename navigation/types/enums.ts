@@ -17,6 +17,10 @@ export enum BottomTabRouteName {
   PROFILE = 'Profile'
 }
 
+export enum LandingStackRouteName {
+  LANDING_SCREEN = 'LandingScreen',
+}
+
 export enum SignUpStackRouteName {
   SIGN_UP_SCREEN = 'SignUpScreen',
 }
