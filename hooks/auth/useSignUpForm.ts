@@ -9,6 +9,7 @@ export enum SignUpFormStepsEnum {
 }
 
 export default function useSignUpForm() {
+  const formInputNames = ['name', 'username', 'email', 'password']
   const [formStep, setFormStep] = useState(0)
   const [formInputState, setFormInputState] = React.useState<SignUpModel>({
     name: '',
@@ -21,6 +22,7 @@ export default function useSignUpForm() {
     formStep,
     setFormStep,
     formInputState,
-    setFormInputState
+    setFormInputState,
+    formInputNames
   ] as const
 }

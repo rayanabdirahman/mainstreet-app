@@ -11,11 +11,11 @@ import useSignUpForm, { SignUpFormStepsEnum } from '../../hooks/auth/useSignUpFo
 
 const SignUpScreen = ({ navigation }: StackScreenProps<AuthStackParamList, AuthScreenName.SIGN_UP>) => {
   const dispatch = useDispatch()
-  const [formStep, setFormStep, formInputState, setFormInputState ] = useSignUpForm()
+  const [formStep, setFormStep, formInputState, setFormInputState, formInputNames ] = useSignUpForm()
 
   return (
     <LayoutWithContentContainer>
-      <Text style={tailwind('font-bold text-black text-2xl mb-2')}>Welcome to mainstreet</Text>             
+      <Text style={tailwind('font-bold text-black text-2xl mb-2')}>Lets get started!</Text>             
       { 
         formStep === SignUpFormStepsEnum.NAME ? (
           <SignUpStepName onChangeText={(value: string) => setFormInputState({ ...formInputState, name: value })} />
@@ -31,8 +31,11 @@ const SignUpScreen = ({ navigation }: StackScreenProps<AuthStackParamList, AuthS
         ) : null
       }
       <Button
-        title={ formStep === SignUpFormStepsEnum.PASSWORD ? "Sign up" : "Continue" }
-        success={ formStep === SignUpFormStepsEnum.PASSWORD ? false : true }
+        title={formStep === SignUpFormStepsEnum.PASSWORD ? "Sign up" : "Continue"}
+        success={formStep === SignUpFormStepsEnum.PASSWORD ? false : true}
+        // @ts-ignore
+        // check if the current input field is empty
+        disabled={!formInputState[formInputNames[formStep]] ? true : false}
         onPress={ () => (
           formStep === SignUpFormStepsEnum.PASSWORD ? dispatch(signUpUser({ ...formInputState })) : setFormStep(formStep + 1)
         )}/>

@@ -4,7 +4,7 @@ import tailwind from 'tailwind-rn'
 
 export const LayoutWithContentContainer = (props: View['props']) => (
   <SafeAreaView style={tailwind('bg-white')}>
-    <View style={tailwind('bg-white h-full pt-4 pl-5 pr-5 pb-0')}>
+    <View style={tailwind('bg-white h-full pt-4 pl-6 pr-6 pb-0')}>
       { props.children }
     </View>              
   </SafeAreaView>

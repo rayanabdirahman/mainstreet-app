@@ -39,7 +39,11 @@ const SignInScreen = ({ navigation }: StackScreenProps<AuthStackParamList, AuthS
           onChangeText={(value: string) => setFormInputState({ ...formInputState, password: value })}
         />
       </View>
-      <Button title="Login" onPress={() => dispatch(signInUser({ ...formInputState }))} />
+      <Button
+        title="Login"
+        disabled={!formInputState.email || !formInputState.password ? true : false}
+        onPress={() => dispatch(signInUser({ ...formInputState }))}
+      />
     </LayoutWithContentContainer>
   )
 }
