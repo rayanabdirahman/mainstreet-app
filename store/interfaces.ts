@@ -1,4 +1,4 @@
-import { UserModel, UserRole } from '../types'
+import { AlertModel, UserModel, UserRole } from '../types'
 
 export type SessionState = {
   token: string | null,
@@ -7,3 +7,5 @@ export type SessionState = {
   role: UserRole | null
   user: UserModel | null
 }
+
+export type AlertState = AlertModel[]

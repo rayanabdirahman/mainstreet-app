@@ -8,6 +8,7 @@ import Navigation from './navigation'
 import { authoriseUser } from './store/actions/authentication'
 import { SessionState } from './store/interfaces'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
+import { AlertBanner } from './components'
 
 function App() {
   const dispatch = useDispatch()
@@ -21,6 +22,7 @@ function App() {
   return (
     <SafeAreaProvider>
       <Navigation isUserSignedIn={isAuthenticated} />
+      <AlertBanner />
       <StatusBar style="auto"/>
     </SafeAreaProvider>
   )

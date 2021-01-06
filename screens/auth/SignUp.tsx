@@ -1,7 +1,5 @@
 import React from 'react'
-import { Text } from 'react-native'
 import { StackScreenProps } from '@react-navigation/stack'
-import tailwind from 'tailwind-rn'
 import { AuthScreenName } from '../../navigation/types/enums'
 import { AuthStackParamList } from '../../navigation/types/interfaces'
 import { Button, LayoutWithContentContainer, SignUpStepEmail, SignUpStepName, SignUpStepPassword, SignUpStepUsername } from '../../components'

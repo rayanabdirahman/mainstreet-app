@@ -3,8 +3,9 @@ import { ThunkDispatch } from 'redux-thunk'
 import { AnyAction } from 'redux'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { AuthenticationActionType } from './types'
-import { SignUpModel, SignInModel, UserModel } from '../../types'
+import { SignUpModel, SignInModel, UserModel, AlertTypeEnum } from '../../types'
 import UserApi from '../../api/user.api'
+import { setAlert } from './alert'
 
 export const signUpUser = (model: SignUpModel) => async (dispatch: ThunkDispatch<{}, {}, AnyAction>): Promise<void> => {
   try {
@@ -15,8 +16,12 @@ export const signUpUser = (model: SignUpModel) => async (dispatch: ThunkDispatch
     // get user details 
     dispatch(authoriseUser())
   } catch (error) {
-    dispatch({ type: AuthenticationActionType.SIGN_UP_FAIL })
     console.log('SIGNUP ERROR: ', error)
+    dispatch({ type: AuthenticationActionType.SIGN_UP_FAIL })
+    dispatch(setAlert({
+      message: error,
+      type: AlertTypeEnum.ERROR
+    }))
   }
 }
 
@@ -29,8 +34,12 @@ export const signInUser = (model: SignInModel) => async (dispatch: ThunkDispatch
     // get user details 
     dispatch(authoriseUser())
   } catch(error) {
-    dispatch({ type: AuthenticationActionType.SIGN_IN_FAIL })
     console.log('SIGNIN ERROR: ', error)
+    dispatch({ type: AuthenticationActionType.SIGN_IN_FAIL })
+    dispatch(setAlert({
+      message: error,
+      type: AlertTypeEnum.WARNING
+    }))
   }
 }
 
@@ -41,8 +50,12 @@ export const signOutUser = () => async (dispatch: ThunkDispatch<{}, {}, AnyActio
     await AsyncStorage.removeItem(`${Constants.manifest.extra.LOCALSTORAGE_AUTHORIZATION_TOKEN}`)
     dispatch({ type: AuthenticationActionType.SIGN_OUT_SUCCESS, payload: response })
   } catch (error) {
-    dispatch({ type: AuthenticationActionType.SIGN_OUT_FAIL })
     console.log('SIGNOUT ERROR: ', error)
+    dispatch({ type: AuthenticationActionType.SIGN_OUT_FAIL })
+    dispatch(setAlert({
+      message: error,
+      type: AlertTypeEnum.ERROR
+    }))
   }
 }
 
@@ -53,7 +66,7 @@ export const authoriseUser = () => async (dispatch: ThunkDispatch<{}, {}, AnyAct
     const user: UserModel = await UserApi.authorise(token)
     dispatch({ type: AuthenticationActionType.AUTHORISE_USER, payload: { user, token } })
   } catch (error) {
-    dispatch({ type: AuthenticationActionType.AUTHORISE_ERROR })
     console.log('AUTHORISE ERROR: ', error)
+    dispatch({ type: AuthenticationActionType.AUTHORISE_ERROR })
   }
 }
