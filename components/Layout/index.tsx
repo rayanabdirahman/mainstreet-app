@@ -1,5 +1,5 @@
 import React from 'react'
-import { SafeAreaView, View } from 'react-native'
+import { KeyboardAvoidingView, Platform, SafeAreaView, View } from 'react-native'
 import tailwind from 'tailwind-rn'
 
 export const LayoutWithContentContainer = (props: View['props']) => (
@@ -16,4 +16,14 @@ export const LayoutWithOutContentContainer = (props: View['props']) => (
       { props.children }
     </View>              
   </SafeAreaView>
+)
+
+export const KeyboardAvoidingContainer = ({ children }: View['props']) => (
+  <KeyboardAvoidingView
+    behavior={Platform.OS == 'ios' ? 'padding' : 'height'}
+    style={{ flex: 1 }}
+    keyboardVerticalOffset={110}
+    >
+    { children }
+  </KeyboardAvoidingView>
 )
