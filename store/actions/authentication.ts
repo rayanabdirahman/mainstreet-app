@@ -38,7 +38,7 @@ export const signInUser = (model: SignInModel) => async (dispatch: ThunkDispatch
     dispatch({ type: AuthenticationActionType.SIGN_IN_FAIL })
     dispatch(setAlert({
       message: error,
-      type: AlertTypeEnum.WARNING
+      type: AlertTypeEnum.ERROR
     }))
   }
 }

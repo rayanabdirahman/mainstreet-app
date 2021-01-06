@@ -1,5 +1,6 @@
 import { ThunkDispatch } from 'redux-thunk'
 import { AnyAction } from 'redux'
+import 'react-native-get-random-values'
 import { v4 as uuidv4 } from 'uuid'
 import { AlertActionType } from './types'
 import { AlertModel } from '../../types'
