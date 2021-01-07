@@ -22,10 +22,10 @@ const LandingScreen = ({ navigation }: StackScreenProps<AuthStackParamList, Auth
     <LayoutWithContentContainer>
       <View style={tailwind('flex-1')}></View>
       <View style={tailwind('mt-5 mb-14 flex-initial')}>
-        <Text style={tailwind('mb-2 font-bold text-black text-2xl')}>Welcome to mainstreet!</Text>             
+        <Text style={tailwind('mb-2 font-bold text-black text-2xl')}>Welcome to mainstreet</Text>             
         <Text style={tailwind('font-normal text-gray-500 text-base')}>Shop the stores you love. Discover new favourites</Text>
       </View>
-      <Button title='signup' onPress={() => navigation.navigate(AuthScreenName.SIGN_UP)} />
+      <Button title='Sign up' onPress={() => navigation.navigate(AuthScreenName.SIGN_UP)} />
     </LayoutWithContentContainer>
   )
 }

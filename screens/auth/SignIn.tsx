@@ -23,7 +23,7 @@ const SignInScreen = ({ navigation }: StackScreenProps<AuthStackParamList, AuthS
   return (
     <LayoutWithContentContainer>
       <View style={tailwind('mb-10')}>
-        <Text style={tailwind('font-bold text-black text-2xl mb-2')}>Welcome back</Text>             
+        <Text style={tailwind('font-bold text-black text-2xl mb-2')}>Welcome back!</Text>             
         <Text style={tailwind('font-normal text-gray-500 text-base')}>Enter your credentials to continue</Text>      
       </View>
       <KeyboardAvoidingContainer>
