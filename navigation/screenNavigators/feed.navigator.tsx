@@ -1,31 +1,16 @@
 import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
-import { View, Text, SafeAreaView, Button } from 'react-native'
-import tailwind from 'tailwind-rn'
-import { FeedParamList } from '../types/interfaces'
-import { FeedTabRouteName } from '../types/enums'
-import { StatusBar } from 'expo-status-bar'
-import { signOutUser } from '../../store/actions/authentication'
-import { useDispatch } from 'react-redux'
-import AsyncStorage from '@react-native-async-storage/async-storage'
-import { LayoutWithContentContainer } from '../../components'
+import { FeedStackParamList } from '../types/interfaces'
+import { FeedStackRouteName } from '../types/enums'
+import { FeedScreen } from '../../screens'
+import { AuthHeaderOptions } from '../styles'
 
-const PlaceHolderScreen = () => {
-  const dispatch = useDispatch()
-  return (
-    <LayoutWithContentContainer>
-      <Text>Feed</Text>
-      <Button title='clear' onPress={() => AsyncStorage.clear()} />
-    </LayoutWithContentContainer>
-  )
-}
-
-const FeedStack = createStackNavigator<FeedParamList>()
+const FeedStack = createStackNavigator<FeedStackParamList>()
 const FeedNavigator = () => (
-  <FeedStack.Navigator>
+  <FeedStack.Navigator screenOptions={AuthHeaderOptions}>
     <FeedStack.Screen
-      name={FeedTabRouteName.FEED_SCREEN}
-      component={PlaceHolderScreen}
+      name={FeedStackRouteName.FEED_SCREEN}
+      component={FeedScreen}
       options={{ headerShown: false }}
     />
   </FeedStack.Navigator>

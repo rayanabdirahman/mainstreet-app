@@ -6,7 +6,7 @@ import BottomTabNavigator from '../BottomTabNavigator'
 
 const Stack = createStackNavigator<RootStackParamList>()
 const RootNavigator = () => (
-  <Stack.Navigator>
+  <Stack.Navigator screenOptions={{ headerShown: false }}>
     <Stack.Screen name={RootStackRouteName.ROOT} component={BottomTabNavigator} />
   </Stack.Navigator>
 )

@@ -12,6 +12,7 @@ export enum RootStackRouteName {
 export enum BottomTabRouteName {
   FEED = 'Feed',
   SEARCH = 'Search',
+  NOTIFICATION = 'Notification',
   CREATE = 'Create',
   CART = 'Cart',
   PROFILE = 'Profile'
@@ -29,8 +30,12 @@ export enum SignInStackRouteName {
   SIGN_IN_SCREEN = 'SignInScreen',
 }
 
-export enum FeedTabRouteName {
+export enum FeedStackRouteName {
   FEED_SCREEN = 'FeedScreen',
+}
+
+export enum NotificationStackRouteName {
+  NOTIFICATION_SCREEN = 'NotificationScreen',
 }
 
 export enum ProfileTabRouteName {

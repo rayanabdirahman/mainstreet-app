@@ -3,7 +3,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import TabBarIcon from '../utilities/tabBarIcon'
 import { BottomTabParamList } from '../types/interfaces'
 import { BottomTabRouteName } from '../types/enums'
-import { FeedNavigator, ProfileNavigator, SearchNavigator } from '../screenNavigators'
+import { FeedNavigator, NotificationNavigator, ProfileNavigator, SearchNavigator } from '../screenNavigators'
 import { getColor } from 'tailwind-rn'
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>()
@@ -27,6 +27,13 @@ const BuyerNavigation = () => (
       component={SearchNavigator}
       options={{
         tabBarIcon: ({ color }: { color: string }) => <TabBarIcon name="search1" color={color} />,
+      }}
+    />
+    <BottomTab.Screen
+      name={BottomTabRouteName.NOTIFICATION}
+      component={NotificationNavigator}
+      options={{
+        tabBarIcon: ({ color }: { color: string }) => <TabBarIcon name="hearto" color={color} />,
       }}
     />
     <BottomTab.Screen

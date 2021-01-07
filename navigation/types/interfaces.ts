@@ -11,8 +11,9 @@ export type RootStackParamList = {
 }
 
 export type BottomTabParamList = {
-  Feed: undefined;
-  Search: undefined;
+  Feed: undefined
+  Search: undefined
+  Notification: undefined
   Create?: undefined
   Cart: undefined
   Profile: undefined
@@ -30,8 +31,12 @@ export type SignUpParamList = {
   SignUpScreen: undefined
 }
 
-export type FeedParamList = {
+export type FeedStackParamList = {
   FeedScreen: undefined
+}
+
+export type NotificationStackParamList = {
+  NotificationScreen: undefined
 }
 
 export type ProfileParamList = {
